@@ -231,6 +231,10 @@
 
 		// Контейнер для галереи
 		const gallery = document.getElementById('gallery');
+		
+		if(screen.width < 500) {
+			gallery.style.padding = '0'
+		}
 
 		// Генерация div для каждой фотографии
 		for (let i = 1; i <= photoCount; i++) {
