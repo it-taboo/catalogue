@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>it.taboo</title>
+	<link rel="icon" href="favicon.ico" />
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./sidebar.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+	<main>
+		<div class='extra' id='extra'>
+			<div class='extradiv' id='extradiv'>
+				<div id='photo-cont2'></div>
+				<div id='text-cont'>
+					<h1 id='text1'>Имя питомца</h1>
+					<p id='text2'>Описание</p>
+				</div>
+				<div id='exit'></div>
+			</div>
+		</div>
+		<div class='navhover'>
+			<nav class='navtop'>
+				<div class="el">
+					<img class='ittaboo-logo' src='./images/logo.png'></img>
+					<a class="name calcul"
+						href='https://www.instagram.com/it_taboo_kz?igsh=emFneDNhemg4anhv&utm_source=qr'>Посты</a>
+					<p class="name p-name">|</p>
+					<a class="name calcul" href='#stats'>Питомники</a>
+				</div>
+			</nav>
+		</div>
+		<div class='catalogue-main'>
+			<div class='cata-title'>
+				<h1>Помогите бездомным животным уже сейчас!</h1>
+			</div>
+			<div class='catalogue' id='gallery'>
+				
+			</div>
+		</div>
+	</main>
+	<footer>
+		<img class='logo2' src='./images/logo.png'></img>
+	</footer>
+	<script>
+		data = {
+				"1": {
+					"title": "Собака без хозяина",
+					"desc": "Привита. У него умер хозяин, из-за чего его сдали в приют. Из-за этого он стал пугливым"
+				},
+				"2": {
+					"title": "Хаски Майк",
+					"desc": "Привит. Характер беспокойный. Однажды его приютили, но снова бросили :("
+				},
+				"3": {
+					"title": "Тэффа",
+					"desc": "Привита. Ласковая, общительная и социальная. Получила травму на улице, из-за чего ей пришлось удалить один глаз"
+				},
+				"4": {
+					"title": "Белка",
+					"desc": "Привита. Хорошая девочка. Хочет быть главной и любимой. Спасена с улиц"
+				},
+				"5": {
+					"title": "Кошка",
+					"desc": "Привита. Была найдена на улице с травмами. Сейчас здорова как корова"
+				},
+				"6": {
+					"title": "Миленькая кошечка",
+					"desc": "Привита. Подобрали с улицы, знает где лоток."
+				},
+				"7": {
+					"title": "Вторая миленькая кошечка",
+					"desc": "Привита. Приучена к лотку"
+				},
+				"8": {
+					"title": "",
+					"desc": ""
+				},
+				"9": {
+					"title": "",
+					"desc": ""
+				},
+				"10": {
+					"title": "",
+					"desc": ""
+				},
+				"11": {
+					"title": "",
+					"desc": ""
+				},
+				"12": {
+					"title": "",
+					"desc": ""
+				},
+				"13": {
+					"title": "",
+					"desc": ""
+				},
+				"14": {
+					"title": "",
+					"desc": ""
+				},
+				"15": {
+					"title": "",
+					"desc": ""
+				},
+				"16": {
+					"title": "",
+					"desc": ""
+				},
+				"17": {
+					"title": "",
+					"desc": ""
+				},
+				"18": {
+					"title": "",
+					"desc": ""
+				},
+				"19": {
+					"title": "",
+					"desc": ""
+				},
+				"20": {
+					"title": "",
+					"desc": ""
+				},
+				"21": {
+					"title": "",
+					"desc": ""
+				},
+				"22": {
+					"title": "",
+					"desc": ""
+				},
+				"23": {
+					"title": "",
+					"desc": ""
+				},
+				"24": {
+					"title": "",
+					"desc": ""
+				},
+				"25": {
+					"title": "",
+					"desc": ""
+				},
+				"26": {
+					"title": "",
+					"desc": ""
+				},
+				"27": {
+					"title": "",
+					"desc": ""
+				},
+				"28": {
+					"title": "",
+					"desc": ""
+				},
+				"29": {
+					"title": "",
+					"desc": ""
+				},
+				"30": {
+					"title": "",
+					"desc": ""
+				},
+				"31": {
+					"title": "",
+					"desc": ""
+				},
+				"32": {
+					"title": "",
+					"desc": ""
+				},
+				"33": {
+					"title": "",
+					"desc": ""
+				},
+				"34": {
+					"title": "",
+					"desc": ""
+				},
+				"35": {
+					"title": "",
+					"desc": ""
+				},
+				"36": {
+					"title": "",
+					"desc": ""
+				},
+				"37": {
+					"title": "",
+					"desc": ""
+				},
+				"38": {
+					"title": "",
+					"desc": ""
+				},
+				"39": {
+					"title": "",
+					"desc": ""
+				},
+				"40": {
+					"title": "",
+					"desc": ""
+				}
+			}
+		console.log(data)
+
+		const extra = document.getElementById('extra');
+		extra.style.height = `${screen.height}px`
+		extra.addEventListener('click', function () {
+			extra.style.left = '-100%'
+		});
+
+		document.getElementById('extradiv').addEventListener('click', (event) => {
+			event.stopPropagation();
+		});
+
+		const divpic = document.getElementById('photo-cont2')
+		const divtext1 = document.getElementById('text1')
+		const divtext2 = document.getElementById('text2')
+
+		// Количество фотографий
+		const photoCount = 39;
+
+		// Контейнер для галереи
+		const gallery = document.getElementById('gallery');
+
+		// Генерация div для каждой фотографии
+		for (let i = 1; i <= photoCount; i++) {
+			// Создаем div-контейнер для фотографии
+			const photoContainer = document.createElement('div');
+			photoContainer.classList.add('photo-container');
+			photoContainer.classList.add(`photo-container${i}`);
+
+			photoContainer.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+
+			const photoText = document.createElement('p');
+			photoText.textContent = data[i.toString()]['title']
+
+			photoText.classList.add('photo-text');
+			photoText.classList.add(`photo-text${i}`);
+
+			photoText.style.width = '100%'
+
+			const photoText2 = document.createElement('p');
+			photoText2.textContent = data[i.toString()]['desc']
+
+			photoText2.classList.add('photo-subtext');
+			photoText2.classList.add(`photo-subtext${i}`);
+
+			photoText2.style.width = '100%'
+
+			photoContainer.appendChild(photoText)
+			photoContainer.appendChild(photoText2)
+
+			/* Создаем img с правильным путем к файлу
+			const img = document.createElement('img');
+			img.src = `./dog-images/${i}.jpeg`; // предполагаем, что файлы названы 1.jpg, 2.jpg и т.д.
+			img.alt = `Photo ${i}`;
+
+			// Вставляем img внутрь div-контейнера
+			photoContainer.appendChild(img);*/
+
+			// Добавляем div-контейнер в галерею
+			gallery.appendChild(photoContainer);
+			photoContainer.addEventListener('click', function () {
+				extra.style.left = '0%'
+				divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+				divtext1.textContent = data[i.toString()]['title']
+				divtext2.textContent = data[i.toString()]['desc']
+			});
+		}
+	</script>
+</body>
+
+</html>
