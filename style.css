@@ -142,13 +142,11 @@ p {
 		width: 100%;
 	}
 
-		#text-cont>h1 {
-			color: #000000;
-			margin: 0;
-		}
-	
-		#text-cont>p {
-			overflow-y: scroll;
-			height: 80%;
-		}
+	.photo-subtext {
+		font-size: 17px;
+	}
+
+	.photo-container {
+		height: 200px;
+	}
 }
