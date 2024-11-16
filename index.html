@@ -19,6 +19,11 @@
 				<div id='photo-cont2'></div>
 				<div id='text-cont'>
 					<h1 id='text1'>Имя питомца</h1>
+					<p id='text3'>Пол: </p>
+					<p id='text4'>Прививка: Имеется</p>
+					<p id='text5'>Содержится в: Приют "Амиго"</p>
+					<a href='https://www.instagram.com/priut_amigo/' id='text6'>Инстаграм аккаунт "Амиго"</a>
+					<p id='text7'>Связаться с приютом: +7 (708) 706-50-23</p>
 					<p id='text2'>Описание</p>
 				</div>
 				<div id='exit'></div>
@@ -28,9 +33,10 @@
 			<nav class='navtop'>
 				<div class="el">
 					<img class='ittaboo-logo' src='./images/logo.png'></img>
-					<a class="name calcul" href='https://it-taboo.github.io/catalogue/'>Посты</a>
+					<a class="name calcul"
+						href='https://www.instagram.com/it_taboo_kz?igsh=emFneDNhemg4anhv&utm_source=qr'>Посты</a>
 					<p class="name p-name">|</p>
-					<a class="name calcul" href='https://it-taboo.github.io/mainpage#stats'>Питомники</a>
+					<a class="name calcul" href='#stats'>Питомники</a>
 				</div>
 			</nav>
 		</div>
@@ -38,6 +44,13 @@
 			<div class='cata-title'>
 				<h1>Помогите бездомным животным уже сейчас!</h1>
 			</div>
+
+			<select id="dropdown" onchange='selectChange()'>
+				<option value="all">Без фильтра</option>
+				<option value="gender">Пол</option>
+				<option value="shelter">Приют</option>
+			</select>
+
 			<div class='catalogue' id='gallery'>
 				
 			</div>
@@ -50,165 +63,406 @@
 		data = {
 				"1": {
 					"title": "Собака без хозяина",
-					"desc": "Привита. У него умер хозяин, из-за чего его сдали в приют. Из-за этого он стал пугливым"
+					"desc": "Пугливый, но добрый",
+					"fulldesc": "Привит. У него умер хозяин, из-за чего его сдали в приют. Из-за этого он стал пугливым",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"2": {
 					"title": "Хаски Майк",
-					"desc": "Привит. Характер беспокойный. Однажды его приютили, но снова бросили :("
+					"desc": "Беспокойный",
+					"fulldesc": "Привит. Характер беспокойный. Однажды его приютили, но снова бросили :(",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"3": {
 					"title": "Тэффа",
-					"desc": "Привита. Ласковая, общительная и социальная. Получила травму на улице, из-за чего ей пришлось удалить один глаз"
+					"desc": "Ласковая, общительная и социальная",
+					"fulldesc": "Привита. Ласковая, общительная и социальная. Получила травму на улице, из-за чего ей пришлось удалить один глаз",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"4": {
 					"title": "Белка",
-					"desc": "Привита. Хорошая девочка. Хочет быть главной и любимой. Спасена с улиц"
+					"desc": "Хорошая девочка",
+					"fulldesc": "Привита. Хорошая девочка. Хочет быть главной и любимой. Спасена с улиц",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"5": {
 					"title": "Кошка",
-					"desc": "Привита. Была найдена на улице с травмами. Сейчас здорова как корова"
+					"desc": "Здорова как корова",
+					"fulldesc": "Привита. Была найдена на улице с травмами. Сейчас здорова как корова",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"6": {
 					"title": "Миленькая кошечка",
-					"desc": "Привита. Подобрали с улицы, знает где лоток."
+					"desc": "Милая и обаятельная",
+					"fulldesc": "Привита. Подобрали с улицы, знает где лоток. Найдена на улице, вместе с другой кошкой, выходили их двоих, сейчас ждут хозяина.",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"7": {
 					"title": "Вторая миленькая кошечка",
-					"desc": "Привита. Приучена к лотку"
+					"desc": "Привита и приучена к лотку",
+					"fulldesc": "Привита. Найдена на улице, вместе с другой кошкой, выходили их двоих, сейчас ждет хозяина. Красивый окрас. Покладистый характер",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"8": {
-					"title": "",
-					"desc": ""
+					"title": "Макс и Арнольд",
+					"desc": "Не разлей вода",
+					"fulldesc": "Найдены на улице вместе.",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"9": {
-					"title": "",
-					"desc": ""
+					"title": "Алиса",
+					"desc": "Грозная",
+					"fulldesc": "Готова защищать свою территорию",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"10": {
-					"title": "",
-					"desc": ""
+					"title": "Шарик, Бобик, Макс и Граф",
+					"desc": "Стая добрых собак",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"11": {
-					"title": "",
-					"desc": ""
+					"title": "Алла",
+					"desc": "Отличная сторожевая собака",
+					"fulldesc": "",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"12": {
-					"title": "",
-					"desc": ""
+					"title": "Мухтар",
+					"desc": "Веселый пёс",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"13": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"14": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"15": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"16": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"17": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"18": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"19": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"20": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"21": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"22": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"23": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"24": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"25": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"26": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"27": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"28": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"29": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"30": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"31": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"32": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"33": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"34": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"35": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"36": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"37": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"38": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"39": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "мужской",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				},
 				"40": {
 					"title": "",
-					"desc": ""
+					"desc": "",
+					"fulldesc": "",
+					"gender": "женский",
+					"shelter": "Приют Амиго",
+					"contact": "https://www.instagram.com/priut_amigo/",
+					"contact2": "+7 (708) 706-50-23",
+					"vaccination": "Привит(-а)"
 				}
 			}
+
 		console.log(data)
 
 		const extra = document.getElementById('extra');
@@ -224,16 +478,18 @@
 		const divpic = document.getElementById('photo-cont2')
 		const divtext1 = document.getElementById('text1')
 		const divtext2 = document.getElementById('text2')
+		const divtext3 = document.getElementById('text3')
 
 		// Количество фотографий
 		const photoCount = 39;
 
 		// Контейнер для галереи
 		const gallery = document.getElementById('gallery');
-		
+
 		if(screen.width < 500) {
 			gallery.style.padding = '0'
 			extra.style.width = '0'
+			document.getElementsByClassName('navtop').style.width = screen.width
 		}
 
 		// Генерация div для каждой фотографии
@@ -278,8 +534,298 @@
 				extra.style.left = '0%'
 				divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
 				divtext1.textContent = data[i.toString()]['title']
-				divtext2.textContent = data[i.toString()]['desc']
+				divtext2.textContent = data[i.toString()]['fulldesc']
+				divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
 			});
+
+			photoContainer.addEventListener('touchstart', function () {
+				extra.style.left = '0%'
+				divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+				divtext1.textContent = data[i.toString()]['title']
+				divtext2.textContent = data[i.toString()]['fulldesc']
+				divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+
+				const scrollPosition = window.scrollY || window.pageYOffset;
+
+				const touchX = event.touches[0].clientX;
+				const touchY = event.touches[0].clientY;
+
+				extra.style.top = (touchY - 350) + 'px';
+			});
+
+			/*window.addEventListener('scroll', function () {
+				const scrollPosition = window.scrollY || window.pageYOffset;
+				extra.style.top = scrollPosition + 'px';
+			});*/
+
+			const dropdown = document.getElementById('dropdown');
+
+			function selectChange() {
+				if (dropdown.value === 'all') {
+					const galleries = document.querySelectorAll('.catalogue');
+					galleries.forEach(gallery => gallery.remove());
+
+					const del1 = document.querySelectorAll('.deletable');
+					del1.forEach(gallery => gallery.remove());
+
+					gal1 = document.createElement('div')
+					gal1.classList.add('catalogue')
+					document.getElementsByClassName('catalogue-main')[0].appendChild(gal1)
+					
+					for (let i = 1; i <= photoCount; i++) {
+						// Создаем div-контейнер для фотографии
+						const photoContainer = document.createElement('div');
+						photoContainer.classList.add('photo-container');
+						photoContainer.classList.add(`photo-container${i}`);
+
+						photoContainer.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+
+						const photoText = document.createElement('p');
+						photoText.textContent = data[i.toString()]['title']
+
+						photoText.classList.add('photo-text');
+						photoText.classList.add(`photo-text${i}`);
+
+						photoText.style.width = '100%'
+
+						const photoText2 = document.createElement('p');
+						photoText2.textContent = data[i.toString()]['desc']
+
+						photoText2.classList.add('photo-subtext');
+						photoText2.classList.add(`photo-subtext${i}`);
+
+						photoText2.style.width = '100%'
+
+						photoContainer.appendChild(photoText)
+						photoContainer.appendChild(photoText2)
+
+						/* Создаем img с правильным путем к файлу
+						const img = document.createElement('img');
+						img.src = `./dog-images/${i}.jpeg`; // предполагаем, что файлы названы 1.jpg, 2.jpg и т.д.
+						img.alt = `Photo ${i}`;
+			
+						// Вставляем img внутрь div-контейнера
+						photoContainer.appendChild(img);*/
+
+						// Добавляем div-контейнер в галерею
+						gal1.appendChild(photoContainer);
+						photoContainer.addEventListener('click', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+						});
+
+						photoContainer.addEventListener('touchstart', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+
+							const scrollPosition = window.scrollY || window.pageYOffset;
+
+							const touchX = event.touches[0].clientX;
+							const touchY = event.touches[0].clientY;
+
+							extra.style.top = (touchY - 350) + 'px';
+						});
+					}
+				}
+
+				if(dropdown.value === 'shelter') {
+					const galleries = document.querySelectorAll('.catalogue');
+					galleries.forEach(gallery => gallery.remove());
+
+					const del1 = document.querySelectorAll('.deletable');
+					del1.forEach(gallery => gallery.remove());
+
+					h11 = document.createElement('h1')
+					h11.textContent = 'Приют "Амиго"'
+					catatitle1 = document.createElement('div')
+					catatitle1.classList.add('cata-title')
+					catatitle1.classList.add('deletable')
+					catatitle1.appendChild(h11)
+
+					document.getElementsByClassName('catalogue-main')[0].appendChild(catatitle1)
+
+					gal1 = document.createElement('div')
+					gal1.classList.add('catalogue')
+					document.getElementsByClassName('catalogue-main')[0].appendChild(gal1)
+
+					h12 = document.createElement('h1')
+					h12.textContent = 'Скоро добавим животных из других приютов!'
+					catatitle2 = document.createElement('div')
+					catatitle2.classList.add('cata-title')
+					catatitle2.classList.add('deletable')
+					catatitle2.appendChild(h12)
+
+					document.getElementsByClassName('catalogue-main')[0].appendChild(catatitle2)
+
+					for (let i = 1; i <= photoCount; i++) {
+						// Создаем div-контейнер для фотографии
+						const photoContainer = document.createElement('div');
+						photoContainer.classList.add('photo-container');
+						photoContainer.classList.add(`photo-container${i}`);
+
+						photoContainer.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+
+						const photoText = document.createElement('p');
+						photoText.textContent = data[i.toString()]['title']
+
+						photoText.classList.add('photo-text');
+						photoText.classList.add(`photo-text${i}`);
+
+						photoText.style.width = '100%'
+
+						const photoText2 = document.createElement('p');
+						photoText2.textContent = data[i.toString()]['desc']
+
+						photoText2.classList.add('photo-subtext');
+						photoText2.classList.add(`photo-subtext${i}`);
+
+						photoText2.style.width = '100%'
+
+						photoContainer.appendChild(photoText)
+						photoContainer.appendChild(photoText2)
+
+						/* Создаем img с правильным путем к файлу
+						const img = document.createElement('img');
+						img.src = `./dog-images/${i}.jpeg`; // предполагаем, что файлы названы 1.jpg, 2.jpg и т.д.
+						img.alt = `Photo ${i}`;
+			
+						// Вставляем img внутрь div-контейнера
+						photoContainer.appendChild(img);*/
+
+						// Добавляем div-контейнер в галерею
+						gal1.appendChild(photoContainer);
+						photoContainer.addEventListener('click', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+						});
+
+						photoContainer.addEventListener('touchstart', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+
+							const scrollPosition = window.scrollY || window.pageYOffset;
+
+							const touchX = event.touches[0].clientX;
+							const touchY = event.touches[0].clientY;
+
+							extra.style.top = (touchY - 350) + 'px';
+						});
+					}
+				}
+
+				if(dropdown.value === 'gender') {
+					const galleries = document.querySelectorAll('.catalogue');
+					galleries.forEach(gallery => gallery.remove());
+
+					const del1 = document.querySelectorAll('.deletable');
+					del1.forEach(gallery => gallery.remove());
+
+					gal1 = document.createElement('div')
+					gal1.classList.add('catalogue')
+
+					gal2 = document.createElement('div')
+					gal2.classList.add('catalogue')
+
+					h11 = document.createElement('h1')
+					h11.textContent = 'Хорошие мальчики'
+					catatitle1 = document.createElement('div')
+					catatitle1.classList.add('cata-title')
+					catatitle1.classList.add('deletable')
+					catatitle1.appendChild(h11)
+
+					document.getElementsByClassName('catalogue-main')[0].appendChild(catatitle1)
+					document.getElementsByClassName('catalogue-main')[0].appendChild(gal1)
+
+					h12 = document.createElement('h1')
+					h12.textContent = 'Хорошие девочки'
+					catatitle2 = document.createElement('div')
+					catatitle2.classList.add('cata-title')
+					catatitle2.classList.add('deletable')
+					catatitle2.appendChild(h12)
+
+					document.getElementsByClassName('catalogue-main')[0].appendChild(catatitle2)
+					document.getElementsByClassName('catalogue-main')[0].appendChild(gal2)
+
+					for (let i = 1; i <= photoCount; i++) {
+						// Создаем div-контейнер для фотографии
+						const photoContainer = document.createElement('div');
+						photoContainer.classList.add('photo-container');
+						photoContainer.classList.add(`photo-container${i}`);
+
+						photoContainer.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+
+						const photoText = document.createElement('p');
+						photoText.textContent = data[i.toString()]['title']
+
+						photoText.classList.add('photo-text');
+						photoText.classList.add(`photo-text${i}`);
+
+						photoText.style.width = '100%'
+
+						const photoText2 = document.createElement('p');
+						photoText2.textContent = data[i.toString()]['desc']
+
+						photoText2.classList.add('photo-subtext');
+						photoText2.classList.add(`photo-subtext${i}`);
+
+						photoText2.style.width = '100%'
+
+						photoContainer.appendChild(photoText)
+						photoContainer.appendChild(photoText2)
+
+						/* Создаем img с правильным путем к файлу
+						const img = document.createElement('img');
+						img.src = `./dog-images/${i}.jpeg`; // предполагаем, что файлы названы 1.jpg, 2.jpg и т.д.
+						img.alt = `Photo ${i}`;
+			
+						// Вставляем img внутрь div-контейнера
+						photoContainer.appendChild(img);*/
+
+						// Добавляем div-контейнер в галерею
+						if(data[i.toString()]['gender'] === 'мужской') {
+							gal1.appendChild(photoContainer);
+						}
+						if(data[i.toString()]['gender'] === 'женский') {
+							gal2.appendChild(photoContainer);
+						}
+
+						photoContainer.addEventListener('click', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+						});
+
+						photoContainer.addEventListener('touchstart', function () {
+							extra.style.left = '0%'
+							divpic.style.backgroundImage = `url(./dog-images/${i}.jpeg)`
+							divtext1.textContent = data[i.toString()]['title']
+							divtext2.textContent = data[i.toString()]['fulldesc']
+							divtext3.textContent = `Пол: ${data[i.toString()]['gender']}`
+
+							const scrollPosition = window.scrollY || window.pageYOffset;
+
+							const touchX = event.touches[0].clientX;
+							const touchY = event.touches[0].clientY;
+
+							extra.style.top = (touchY - 350) + 'px';
+						});
+					}
+				}
+			}
 		}
 	</script>
 </body>
