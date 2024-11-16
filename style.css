@@ -158,6 +158,14 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+	#dropdown {
+		margin-bottom: 100px;
+		width: 300px;
+		height: 70px;
+		font-size: 50px;
+		color: #000000;
+	}
+
 	.extra {
 		width: 25%;
 	}
@@ -165,6 +173,11 @@ footer {
 	.extradiv {
 		flex-direction: column;
 		width: 75%;
+	}
+
+	.catalogue {
+		width: 100%;
+		height: fit-content;
 	}
 
 	#text-cont > h1, a, p {
